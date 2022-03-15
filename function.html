@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+        
+        }
+        .body{
+            height: 400px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 2s;
+            
+        }
+        img{
+            width: 600px;
+            height: 200px;
+            animation: fadeIn 5s;
+        }
+
+        .main {
+            position: absolute;
+
+        }
+
+        .walk {
+            animation: walk 1.0s steps(8) infinite;
+
+        }
+
+        .position {
+            animation: pos 2s infinite;
+        }
+
+        .move {
+            animation: move 20.0s 1;
+        }
+
+        .animation {
+            width: 75px;
+            height: 132px;
+            border-radius: 20px;
+            background: url("capguy-walk.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+
+        @keyframes walk {
+            0% {
+                background-position: 0;
+            }
+
+            100% {
+                background-position: -600px;
+            }
+
+        }
+
+
+        @keyframes move {
+            0% {
+                left: 0%;
+                top: 400px;
+            }
+
+            100% {
+                left: 100%;
+
+                top: 400px;
+            }
+        }
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pos {
+            0% {
+
+                left: 0;
+                top: 0;
+            }
+
+            100% {
+                left: 0%;
+
+                top: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body onload="start()">
+    <iframe width="0" height="0" src="Music.mp3" frameborder="0" allowfullscreen> </iframe>
+    <!-- <audio src="Music.mp3" autoplay loop></audio> -->
+    <div class="body">
+        <img src="artamic.png">
+        <div class="main" id="main">
+            <div id="animation" class="animation">
+    
+            </div>
+    
+        </div>
+
+    </div>
+
+
+
+
+</body>
+<script>
+
+    const mainDiv = document.getElementById("main");
+    const man = document.getElementById("animation");
+
+
+    function walk() {
+        mainDiv.classList.remove("position");
+        mainDiv.classList.add("move");
+        man.classList.add("walk");
+    }
+
+    function slider() {
+        mainDiv.classList.add("position");
+
+    }
+
+    function start() {
+        slider();
+        setTimeout(walk, 2000);
+    }
+
+
+
+</script>
+
+</html>
